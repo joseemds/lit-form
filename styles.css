@@ -2,7 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  background: #fafafa;
+  background: var(--background);
 
   font-family: "Roboto", sans-serif;
 }
@@ -22,25 +22,24 @@ form {
   width: 100%;
   max-width: 400px;
 
-  border: 1px solid #ddd;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 8px 16px rgba(0, 0, 0, 0.1);
+
   border-radius: 8px;
 
   padding: 40px 40px 52px;
 }
 
 form h1 {
-  color: #333334;
+  color: var(--dark);
   text-align: center;
 }
 
 form input {
   margin-top: 25px;
   padding: 12px 18px;
-
   font-size: 16px;
-
-  border: 1px solid #ccc;
   border-radius: 4px;
+  border: 1px solid var(--border);
 }
 
 form input:last-of-type {
@@ -51,8 +50,7 @@ form input:last-of-type {
 form input:active,
 form input:focus {
   outline: none;
-  border: none;
-  box-shadow: 0 0 2px 1px #737581;
+  border: 1px solid var(--primary);
 }
 
 form span:hover {
@@ -70,30 +68,52 @@ form button {
   font-size: 18px;
   font-weight: 700;
 
-  background-color: hsl(207, 73%, 57%);
-  color: #fafafa;
+  background-color: var(--primary);
+  color: var(--background);
   cursor: pointer;
 }
 
 form button:hover {
-  background-color: hsl(207, 73%, 44%);
+  background-color: var(--primary-darken);
 }
 
 form p {
-  color: #333334;
+  color: var(--dark);
 
   text-align: center;
   font-weight: 500;
 }
 
 a {
-  color: #09b437;
+  color: var(--secondary);
   text-decoration: none;
 
   cursor: pointer;
   font-weight: 500;
+
+  outline: none;
 }
 
-a:hover {
+a:hover,
+a:focus {
   text-decoration: underline;
+}
+
+@media (max-width: 376px) {
+  form {
+    padding: 40px 20px 52px;
+
+    box-shadow: none;
+  }
+}
+
+:root {
+  --background: #fafafa;
+  --dark: #333334;
+  --border: #ccc;
+
+  --primary: hsl(207, 73%, 57%);
+  --primary-darken: hsl(207, 73%, 44%);
+
+  --secondary: #09b437;
 }
